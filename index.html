@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        // T 1
+        // class Car {
+        //     constructor(manufacturer, model, year, speed) {
+        //         this.manufacturer = manufacturer;
+        //         this.model = model;
+        //         this.year = year;
+        //         this.speed = speed;
+        //     }
+
+        //     get _manufacturer() {
+        //         return this.manufacturer;
+        //     }
+
+        //     get _model() {
+        //         return this.model;
+        //     }
+
+        //     get _year() {
+        //         return this.year;
+        //     }
+
+        //     get _year() {
+        //         return this.year;
+        //     }
+
+        //     get _speed() {
+        //         return this.speed;
+        //     }
+        // }
+
+        // let car = new Car("BMW", "M5 F90 Competition", "2021", "280 km/h");
+        // document.write("Manufacturer " + car._manufacturer + "<br>");    
+        // document.write("Model " + car._model + "<br>"); 
+        // document.write("Year " + car._year + "<br>"); 
+        // document.write("Spped " + car._speed + "<br>"); 
+
+        // T 2
+        // let numerator1 = 5;
+        // let denominator1 = 10;
+
+        // let numerator2 = 7;
+        // let denominator2 = 14;
+
+        // class Fraction {
+
+        //     constructor(numerator1, denominator1, numerator2, denominator2) {
+        //         this.num1 = numerator1;
+        //         this.den1 = denominator1;
+        //         this.num2 = numerator2;
+        //         this.den2 = denominator2;
+        //     }
+
+        //     addition() {
+        //         let commonDenominator = this.den1 * this.den2;
+        //         let newNumerator = this.num1 * this.den2 + this.num2 * this.den1;
+        //         document.write(commonDenominator + "/" + newNumerator);
+        //     }
+
+        //     subtraction() {
+        //         let commonDenominator = this.den1 * this.den2;
+        //         let newNumerator = this.num1 * this.den2 - this.num2 * this.den1;
+        //         document.write(newNumerator + "/" + commonDenominator);
+        //     }
+
+        //     multiplication() {
+        //         let newNumerator = this.num1 * this.num2;
+        //         let newDenominator = this.den1 * this.den2;
+        //         document.write(newNumerator + "/" + newDenominator);
+        //     }
+
+        //     division() {
+        //         let newNumerator = this.num1 * this.den2;
+        //         let newDenominator = this.den1 * this.num2;
+        //         document.write(newNumerator + "/" + newDenominator)
+        //     }
+
+        //     reduce() {
+        //         let gcd = function (a, b) {
+        //             return b === 0 ? a : gcd(b, a % b);
+        //         };
+
+        //         let commonDivisor = gcd(this.num1, this.den1);
+        //         this.num1 /= commonDivisor;
+        //         this.den1 /= commonDivisor;
+
+        //         let commonDivisor2 = gcd(this.num2, this.den2);
+        //         this.num2 /= commonDivisor2;
+        //         this.den2 /= commonDivisor2;
+        //     }
+        // }
+
+
+
+        // let fract = new Fraction(numerator1, denominator1, numerator2, denominator2);
+
+        // document.write("Sum: ");
+        // fract.addition()
+        // document.write("<br/>Minus: ");
+        // fract.subtraction();
+        // document.write("<br/>Multi: ");
+        // fract.multiplication();
+        // document.write("<br/>Dev: ");
+        // fract.division();
+        // fract.reduce();
+        // document.write("<br/>After dev: " + fract.num1 + "/" + fract.den1 + ", " + fract.num2 + "/" + fract.den2);
+
+        // T 3
+        let hours = 11;
+        let minutes = 37;
+        let seconds = 44;
+
+        class Time {
+            constructor(hours, minutes, seconds) {
+                this.h = hours;
+                this.m = minutes;
+                this.s = seconds;
+            }
+
+            Print() {
+                document.write(this.h + ":" + this.m + ":" + this.s);
+            }
+
+            Seconds(deltaSeconds) {
+                let totalSeconds = this.h * 3600 + this.m * 60 + this.s + deltaSeconds;
+                this.h = Math.floor(totalSeconds / 3600) % 24;
+                this.m = Math.floor((totalSeconds % 3600) / 60);
+                this.s = totalSeconds % 60;
+            }
+
+            Minutes(deltaMinutes) {
+                let totalMinutes = this.h * 60 + this.m + deltaMinutes;
+                this.h = Math.floor(totalMinutes / 60) % 24;
+                this.m = totalMinutes % 60;
+            }
+
+            Hours(deltaHours) {
+                this.h = (this.h + deltaHours) % 24;
+            }
+        }
+
+
+        let time = new Time(11, 44, 32);
+        time.Print();
+        document.write("<br/>");
+
+        document.write("55 sec more: ");
+        time.Seconds(55);
+        time.Print();
+
+        document.write("<br>");
+        document.write("25 min more: ");
+        time.Minutes(25);
+        time.Print();
+
+        document.write("<br>");
+        document.write("3 hour more: ");
+        time.Hours(3);
+        time.Print();
+
+
+    </script>
+
+</body>
+</html>
